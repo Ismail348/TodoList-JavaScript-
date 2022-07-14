@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TodoList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="Main">
+        <h1>TO DO LIST</h1>
+        <span class="title"><i class="fas fa-clipboard-list"></i></span>
+    <div class="InputDiv">
+        <input type="text" class="input" placeholder="Enter Here To Add....">
+        <button class="add">Add</button>
+    
+    </div>
+ <div class="container">
+
+    </div>
+    </div>
+    <div class="button_cont" align="center"><a class="Remove_btn" onclick="RemoveAll()">Remove All</a>
+    </div>--->
+      <!-----<ul id="myUL">
+        <li></li>
+       
+      </ul>--->
+      <script>
+        var  container=document.querySelector('.container');
+
+var  val1=document.querySelector('.input');
+var  addbtn=document.querySelector('.add');
+class item
+{
+    constructor(name)
+    {                                                               
+        this.create(name);
+    }
+    create(name)//function named as "name"...
+    {
+        var l1=document.createElement('div');
+        l1.classList.add('item');
+        var input=document.createElement('input');
+        input.type="text";
+        input.disabled=true;
+        input.value=name;
+        input.classList.add("item_input");
+        
+
+        var remove=document.createElement('button');
+        remove.classList.add('remove');
+        remove.innerHTML='<i class="fa fa-trash" aria-hidden="true"></i>';
+        remove.addEventListener('click',()=>this.remove(l1));
+        container.appendChild(l1);
+        l1.appendChild(input);
+        l1.appendChild(remove);
+
+
+    }
+
+    remove(l1)
+    {
+        container.removeChild(l1);
+    }
+}
+addbtn.addEventListener('click',check);
+window.addEventListener('keydown',(e)=>{
+    if(e.which==13)
+    {
+        check();
+    }
+})
+function check()
+{
+    if(val1.value!="")
+    {
+        new item(val1.value);
+        val1.value="";
+    }
+}
+function RemoveAll()
+{ 
+    document.querySelector('.container').innerHTML="";
+}
+      </script>
+</body>
+
+</html>
